@@ -1,0 +1,151 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente y fondo general */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px 120px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #bbbbbb;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Grid compacto de estaciones */
+.modern-stations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px; /* menos espacio entre tarjetas */
+    width: 100%;
+}
+
+/* Tarjetas de estaciones compactas */
+.station {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.station:hover,
+.station.active {
+    transform: scale(1.05);
+    border-color: #2cd5ff;
+    box-shadow: 0 0 10px #2cd5ffcc;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Logos más pequeños y compactos */
+.station-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    object-fit: cover;
+    border: 2px solid #ffffff22;
+}
+
+.station-info h3 {
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 3px;
+    overflow: hidden;
+    max-width: 100%;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.station-info p {
+    font-size: 0.75rem;
+    color: #bbbbbb;
+    font-weight: 500;
+}
+
+/* Reproductor */
+#aplayer {
+    position: fixed;
+    bottom: 100;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    height: 65px;
+    background-color: #1c1c1c;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.aplayer-author {
+  display: none !important;
+}
+
+.aplayer-time-inner {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .modern-stations {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 8px;
+    }
+
+    .station-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .station-info h3 {
+        font-size: 0.85rem;
+    }
+
+    .station-info p {
+        font-size: 0.7rem;
+    }
+}

@@ -4,391 +4,406 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="RadioSpain" />
-    <meta property="og:description" content="Escucha radios españolas online" />
-    <meta property="og:image" content="./assets/RadioSpain.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://radio-spain.vercel.app" />    
-    <title>RadioSpain</title>
+    <title>Radio Spain</title>
+    <meta name="description" content="Todas las radios más escuchadas de España en un solo dial." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="https://santyxs.vercel.app/assets/RadioSpain.png" type="image/png">
 </head>
 
 <body>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
     <main class="container">
         <header class="modern-header">
+            <div class="dial-strip" aria-hidden="true">
+                <div class="dial-strip-track">
+                    <span>87.6</span><span>91.2</span><span>94.8</span><span>98.4</span><span>102.0</span><span>105.6</span><span>FM</span>
+                    <span>87.6</span><span>91.2</span><span>94.8</span><span>98.4</span><span>102.0</span><span>105.6</span><span>FM</span>
+                </div>
+            </div>
+            <p class="eyebrow">DIAL NACIONAL · 87.6 — 107.6 MHz</p>
             <h1 class="title">Radio Spain</h1>
-            <p class="subtitle">Todas las Radios más escuchadas de España</p>
+            <p class="subtitle">Todas las radios más escuchadas de España</p>
         </header>
 
         <section class="modern-stations" aria-label="Radio station list">
 
+        <!-- Lista de emisoras -->
             <article class="station" id="los40" tabindex="0" aria-label="Los 40 Principales">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/3jk5k9pcxrp9.jpg" alt="Los 40 Principales"
-                    class="station-logo" />
+                <span class="station-freq">87,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/3jk5k9pcxrp9.jpg" alt="Los 40 Principales" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Los 40 Principales</h3>
-                    <p>#1</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="cadena100" tabindex="0" aria-label="Cadena 100">
-                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/cadena-cien.png" alt="Cadena 100"
-                    class="station-logo" />
+                <span class="station-freq">88,1</span>
+                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/cadena-cien.png" alt="Cadena 100" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Cadena 100</h3>
-                    <p>#2</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="cadenaSER" tabindex="0" aria-label="Cadena SER">
-                <img src="https://cadenaser.com/estaticos/recursosgraficos/podcast/podcast-son-caratula.png"
-                    alt="Cadena SER" class="station-logo" />
+                <span class="station-freq">88,6</span>
+                <img src="https://cadenaser.com/estaticos/recursosgraficos/podcast/podcast-son-caratula.png" alt="Cadena SER" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Cadena SER</h3>
-                    <p>#3</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="cadenaDIAL" tabindex="0" aria-label="Cadena DIAL">
-                <img src="https://www.cadenadial.com/wp-content/uploads/2019/02/logo-dial-1.jpg" alt="Cadena DIAL"
-                    class="station-logo" />
+                <span class="station-freq">89,1</span>
+                <img src="https://www.cadenadial.com/wp-content/uploads/2019/02/logo-dial-1.jpg" alt="Cadena DIAL" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Cadena DIAL</h3>
-                    <p>#4</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="cope" tabindex="0" aria-label="COPE">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/556/cadena-cope.fb1248fc.png" alt="COPE"
-                    class="station-logo" />
+                <span class="station-freq">89,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/556/cadena-cope.fb1248fc.png" alt="COPE" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>COPE</h3>
-                    <p>#5</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="ondaCero" tabindex="0" aria-label="Onda Cero">
-                <img src="https://lalistadelafm.com/wp-content/uploads/2023/09/Onda-Cero.jpg" alt="Onda Cero"
-                    class="station-logo" />
+                <span class="station-freq">90,1</span>
+                <img src="https://lalistadelafm.com/wp-content/uploads/2023/09/Onda-Cero.jpg" alt="Onda Cero" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Onda Cero</h3>
-                    <p>#6</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="europaFM" tabindex="0" aria-label="Europa FM">
-                <img src="https://yt3.googleusercontent.com/ZQzcBtU39heTx5Kiw5PMHkNYnCztfWmPw1PJ_qTTbIqEfL5p8Hy_mQhasXkr6zPlbkSxhGVI"
-                    alt="Europa FM" class="station-logo" />
+                <span class="station-freq">90,6</span>
+                <img src="https://yt3.googleusercontent.com/ZQzcBtU39heTx5Kiw5PMHkNYnCztfWmPw1PJ_qTTbIqEfL5p8Hy_mQhasXkr6zPlbkSxhGVI" alt="Europa FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Europa FM</h3>
-                    <p>#7</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="esRadio" tabindex="0" aria-label="ES Radio">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3jhmSspnddY_M90cozQTJYGspGvSIZ0t3Q&s.jpg" alt="ES Radio"
-                    class="station-logo" />
+                <span class="station-freq">91,1</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3jhmSspnddY_M90cozQTJYGspGvSIZ0t3Q&s.jpg" alt="ES Radio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>ES Radio</h3>
-                    <p>#8</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radioOle" tabindex="0" aria-label="Radio Olé">
-                <img src="https://static.mytuner.mobi/media/tvos_radios/hp9JgkDT82.png" alt="Radio Olé"
-                    class="station-logo" />
+                <span class="station-freq">91,6</span>
+                <img src="https://static.mytuner.mobi/media/tvos_radios/hp9JgkDT82.png" alt="Radio Olé" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Olé</h3>
-                    <p>#9</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="kissFM" tabindex="0" aria-label="KISS FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/117/kiss-fm.51b9402b.jpg" alt="KISS FM"
-                    class="station-logo" />
+                <span class="station-freq">92,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/117/kiss-fm.51b9402b.jpg" alt="KISS FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>KISS FM</h3>
-                    <p>#10</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radioMaria" tabindex="0" aria-label="Radio María">
-                <img src="https://radiomariacanarias.es/wp-content/uploads/2018/04/radio-maria.jpg" alt="Radio María"
-                    class="station-logo" />
+                <span class="station-freq">92,6</span>
+                <img src="https://radiomariacanarias.es/wp-content/uploads/2018/04/radio-maria.jpg" alt="Radio María" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio María</h3>
-                    <p>#11</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="canalSur" tabindex="0" aria-label="Canal Sur Radio">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLKYV2WMvrk8hJzrjdih9QOjKePkEzbjNw6g&s" alt="Canal Sur Radio"
-                    class="station-logo" />
+                <span class="station-freq">93,1</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLKYV2WMvrk8hJzrjdih9QOjKePkEzbjNw6g&s" alt="Canal Sur Radio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Canal Sur Radio</h3>
-                    <p>#12</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radioClasica" tabindex="0" aria-label="Radio Clásica">
-                <img src="https://emisorasderadioonline.es/wp-content/uploads/2021/05/Radio-Cl%C3%A1sica.jpg"
-                    alt="Radio Clásica" class="station-logo" />
+                <span class="station-freq">93,6</span>
+                <img src="https://emisorasderadioonline.es/wp-content/uploads/2021/05/Radio-Cl%C3%A1sica.jpg" alt="Radio Clásica" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Clásica</h3>
-                    <p>#13</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radioMarca" tabindex="0" aria-label="Radio Marca">
-                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/marca.png" alt="Radio Marca"
-                    class="station-logo" />
+                <span class="station-freq">94,1</span>
+                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/marca.png" alt="Radio Marca" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Marca</h3>
-                    <p>#14</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radioGalega" tabindex="0" aria-label="Radio Galega">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/997/radio-galega.460f9154.png" alt="Radio Galega" class="station-logo" />
+                <span class="station-freq">94,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/997/radio-galega.460f9154.png" alt="Radio Galega" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Galega</h3>
-                    <p>#15</p>
+                    <p>FM</p>
                 </div>
             </article>
 
-            <article class="station" id="intereconomia" tabindex="0" aria-label="Radio Intereconomía">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/WAsBY8S326.jpg"
-                    alt="Radio Intereconomía" class="station-logo" />
+            <article class="station" id="intereconomia" tabindex="0" aria-label="Intereconomía">
+                <span class="station-freq">95,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/WAsBY8S326.jpg" alt="Intereconomía" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Intereconomía</h3>
-                    <p>#16</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="vivalarumba" tabindex="0" aria-label="Viva la Rumba">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/555/viva-la-rumba.2c3a7fc4.jpg" alt="Viva la Rumba"
-                    class="station-logo" />
+                <span class="station-freq">95,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/555/viva-la-rumba.2c3a7fc4.jpg" alt="Viva la Rumba" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Viva la Rumba</h3>
-                    <p>#17</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="siradio" tabindex="0" aria-label="Si Radio">
-                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/ourense-si.png" alt="Si Radio"
-                    class="station-logo" />
+                <span class="station-freq">96,1</span>
+                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/ourense-si.png" alt="Si Radio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Si Radio</h3>
-                    <p>#18</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="ibizahits" tabindex="0" aria-label="Ibiza Hits">
-                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/ibiza-hits.png"
-                    alt="Ibiza Hits" class="station-logo" />
+                <span class="station-freq">96,6</span>
+                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/ibiza-hits.png" alt="Ibiza Hits" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Ibiza Hits</h3>
-                    <p>#19</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="m80radio" tabindex="0" aria-label="M80 Radio">
-                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/m80-asturias.png" alt="M80 Radio"
-                    class="station-logo" />
+                <span class="station-freq">97,1</span>
+                <img src="https://cdn.instant.audio/images/logos/emisora-org-es/m80-asturias.png" alt="M80 Radio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>M80 Radio</h3>
-                    <p>#20</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="catradio" tabindex="0" aria-label="CatRadio">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/876/catalunya-radio-directe.c8154d75.png" alt="CatRadio" class="station-logo" />
+                <span class="station-freq">97,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/876/catalunya-radio-directe.c8154d75.png" alt="CatRadio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>CatRadio</h3>
-                    <p>#21</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="canariasradio" tabindex="0" aria-label="Canarias Radio">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxPdyK-iGZXnrh5EpLKjb3M3uHTLE3ysQ-ykJuJiIVbN91awT5RTUfQrLCHHUHYRo5-jU&usqp=CAU" alt="Canarias Radio"
-                    class="station-logo" />
+                <span class="station-freq">98,1</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxPdyK-iGZXnrh5EpLKjb3M3uHTLE3ysQ-ykJuJiIVbN91awT5RTUfQrLCHHUHYRo5-jU&usqp=CAU" alt="Canarias Radio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Canarias Radio</h3>
-                    <p>#22</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="xtrafm" tabindex="0" aria-label="Xtra FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/375/xtra-fm-884.b06212b3.png" alt="Xtra FM"
-                    class="station-logo" />
+                <span class="station-freq">98,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/375/xtra-fm-884.b06212b3.png" alt="Xtra FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Xtra FM</h3>
-                    <p>#23</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radiotropical" tabindex="0" aria-label="Radio Tropical">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5k7Ph6JY-2m91IZ7jLA8joMOdtBBK00aHcg&s"
-                    alt="Radio Tropical" class="station-logo" />
+                <span class="station-freq">99,1</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5k7Ph6JY-2m91IZ7jLA8joMOdtBBK00aHcg&s" alt="Radio Tropical" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Tropical</h3>
-                    <p>#24</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="gozaderafm" tabindex="0" aria-label="Gozadera FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/032/gozadera-fm.8ccaae79.png" alt="Gozadera FM"
-                    class="station-logo" />
+                <span class="station-freq">99,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/032/gozadera-fm.8ccaae79.png" alt="Gozadera FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Gozadera FM</h3>
-                    <p>#25</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="tropicana" tabindex="0" aria-label="Tropicana">
-                <img src="https://static.wixstatic.com/media/fe43d3_c6608653a9c241cea0294b8bb4180525~mv2.png" alt="Tropicana"
-                    class="station-logo" />
+                <span class="station-freq">100,1</span>
+                <img src="https://static.wixstatic.com/media/fe43d3_c6608653a9c241cea0294b8bb4180525~mv2.png" alt="Tropicana" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Tropicana</h3>
-                    <p>#26</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="hitfm" tabindex="0" aria-label="Hit FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/640/hit-fm.477231d3.png" alt="Hit FM"
-                    class="station-logo" />
+                <span class="station-freq">100,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/640/hit-fm.477231d3.png" alt="Hit FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Hit FM</h3>
-                    <p>#27</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="laflamenca" tabindex="0" aria-label="La Flamenca FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/46cgsq27ge3l.png"
-                    alt="La Flamenca FM" class="station-logo" />
+                <span class="station-freq">101,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/46cgsq27ge3l.png" alt="La Flamenca FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>La Flamenca FM</h3>
-                    <p>#28</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="motivafm" tabindex="0" aria-label="Motiva FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/5zamcfkpg2ah.png" alt="Motiva FM"
-                    class="station-logo" />
+                <span class="station-freq">101,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/5zamcfkpg2ah.png" alt="Motiva FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Motiva FM</h3>
-                    <p>#29</p>
+                    <p>FM</p>
                 </div>
             </article>
 
-            <article class="station" id="zumbalafm" tabindex="0" aria-label="Zumbala FM">
-                <img src="https://cdn.onlineradiobox.com/img/l/4/116584.v5.png" alt="Zumbala FM"
-                    class="station-logo" />
+            <article class="station" id="melodiafm" tabindex="0" aria-label="Melodía FM">
+                <span class="station-freq">102,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/749/melodia-fm-spain.fc1b90ac.jpg" alt="Melodía FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
-                    <h3>Zumbala FM</h3>
-                    <p>#30</p>
+                    <h3>Melodía FM</h3>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="locafm" tabindex="0" aria-label="Loca FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/qBQVRR4HES.jpg" alt="Loca FM"
-                    class="station-logo" />
+                <span class="station-freq">102,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/qBQVRR4HES.jpg" alt="Loca FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Loca FM</h3>
-                    <p>#31</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radioVoz" tabindex="0" aria-label="Radio Voz">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/8nmaw7qdh2f7.jpg" alt="Radio Voz"
-                    class="station-logo" />
+                <span class="station-freq">103,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/8nmaw7qdh2f7.jpg" alt="Radio Voz" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Voz</h3>
-                    <p>#32</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="rumberosfm" tabindex="0" aria-label="Rumberos FM">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/wvyf5ug4zutd.png" alt="Rumberos FM"
-                    class="station-logo" />
+                <span class="station-freq">103,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/wvyf5ug4zutd.png" alt="Rumberos FM" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Rumberos FM</h3>
-                    <p>#33</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radiocumbia" tabindex="0" aria-label="Radio Cumbia">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/r63hmYYGW9.png" alt="Radio Cumbia"
-                    class="station-logo" />
+                <span class="station-freq">104,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/r63hmYYGW9.png" alt="Radio Cumbia" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Cumbia</h3>
-                    <p>#34</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="canalfiesta" tabindex="0" aria-label="Canal Fiesta Radio">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/065/canal-fiesta-radio.b7f1aeff.png"
-                    alt="Canal Fiesta" class="station-logo" />
+                <span class="station-freq">104,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/065/canal-fiesta-radio.b7f1aeff.png" alt="Canal Fiesta Radio" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Canal Fiesta Radio</h3>
-                    <p>#35</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radiomediterraneo" tabindex="0" aria-label="Radio Mediterráneo">
-                <img src="https://www.radio.es/300/lautfm-radiomediterraneo.png?version=616cebb88d07a2353960d186e5e23809"
-                    alt="Radio Mediterráneo" class="station-logo" />
+                <span class="station-freq">105,1</span>
+                <img src="https://www.radio.es/300/lautfm-radiomediterraneo.png?version=616cebb88d07a2353960d186e5e23809" alt="Radio Mediterráneo" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Mediterráneo</h3>
-                    <p>#36</p>
+                    <p>FM</p>
                 </div>
             </article>
 
-            <article class="station" id="radiomelodia" tabindex="0" aria-label="Radio Melodía">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/749/melodia-fm-spain.fc1b90ac.jpg"
-                    alt="Radio Melodía" class="station-logo" />
+            <article class="station" id="zumbalafm" tabindex="0" aria-label="Radio Zumbala">
+                <span class="station-freq">105,6</span>
+                <img src="https://cdn.onlineradiobox.com/img/l/4/116584.v5.png" alt="Radio Zumbala" class="station-logo" loading="lazy" />
                 <div class="station-info">
-                    <h3>Radio Melodía</h3>
-                    <p>#37</p>
+                    <h3>Radio Zumbala</h3>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radiopopular" tabindex="0" aria-label="Radio Popular">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1llBiO57TJn_e9kXu9gy-cVeZkjdooJGY7Q&s"
-                    alt="Radio Popular" class="station-logo" />
+                <span class="station-freq">106,1</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1llBiO57TJn_e9kXu9gy-cVeZkjdooJGY7Q&s" alt="Radio Popular" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Popular</h3>
-                    <p>#38</p>
+                    <p>FM</p>
                 </div>
             </article>
 
             <article class="station" id="radiorebelde" tabindex="0" aria-label="Radio Rebelde">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/598/radio-rebelde-1041.c8b23fea.png"
-                    alt="Radio Rebelde" class="station-logo" />
+                <span class="station-freq">106,6</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/598/radio-rebelde-1041.c8b23fea.png" alt="Radio Rebelde" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Rebelde</h3>
-                    <p>#40</p>
+                    <p>FM</p>
                 </div>
             </article>
+
             <article class="station" id="radioverbena" tabindex="0" aria-label="Radio Verbena">
-                <img src="https://static2.mytuner.mobi/media/tvos_radios/2xk6jbk8esks.jpg"
-                    alt="Radio Verbena" class="station-logo" />
+                <span class="station-freq">107,1</span>
+                <img src="https://static2.mytuner.mobi/media/tvos_radios/2xk6jbk8esks.jpg" alt="Radio Verbena" class="station-logo" loading="lazy" />
                 <div class="station-info">
                     <h3>Radio Verbena</h3>
-                    <p>#41</p>
+                    <p>FM</p>
                 </div>
             </article>
-            
+
         </section>
 
         <!-- Reproductor de audio -->
         <section class="modern-player" aria-label="Audio player">
-            <div id="aplayer" class="aplayer aplayer-modern">
-                <div class="now-playing">
-                    <span class="playing-now">Now playing:</span>
-                    <div class="track-info"></div>
+            <div class="player-shell">
+                <div class="player-led" aria-hidden="true"></div>
+                <div id="aplayer" class="aplayer aplayer-modern">
+                    <div class="now-playing">
+                        <span class="playing-now">EN ANTENA</span>
+                        <div class="track-info"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -401,6 +416,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js"></script>
     <script type="module" src="script.js"></script>
-
 </body>
+
 </html>

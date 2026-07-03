@@ -1,151 +1,477 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fuente y fondo general */
+:root {
+    --walnut-950: #14100b;
+    --walnut-900: #1b1610;
+    --walnut-800: #251d14;
+    --panel: #2a2018;
+    --panel-border: #4a3a26;
+    --brass: #d4a24c;
+    --brass-bright: #f0c46a;
+    --cream: #f2e8d5;
+    --cream-dim: #b8ab90;
+    --on-air: #c1440e;
+    --on-air-bright: #ff5a26;
+
+    --font-display: 'Oswald', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: #ffffff;
+    font-family: var(--font-body);
+    background:
+        radial-gradient(circle at 15% 0%, rgba(212, 162, 76, 0.10), transparent 45%),
+        radial-gradient(circle at 85% 100%, rgba(193, 68, 14, 0.10), transparent 45%),
+        var(--walnut-950);
+    background-attachment: fixed;
+    color: var(--cream);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px 20px 120px;
+    padding: 40px 20px 140px;
+    position: relative;
+}
+
+/* Textura de grano sutil, evoca la carcasa de baquelita de una radio antigua */
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
 }
 
 /* Contenedor principal */
 .container {
     width: 100%;
     max-width: 1400px;
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    padding: 40px;
+    background: linear-gradient(180deg, var(--walnut-900), var(--walnut-800));
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    padding: 0 40px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* ============================================
+   Header + tira de dial animada (elemento firma)
+   ============================================ */
+
+.modern-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+}
+
+.dial-strip {
+    width: calc(100% + 80px);
+    margin: 0 -40px 28px;
+    overflow: hidden;
+    background: repeating-linear-gradient(90deg,
+            var(--brass) 0px, var(--brass) 2px,
+            transparent 2px, transparent 14px);
+    background-color: #0e0b07;
+    border-bottom: 1px solid var(--panel-border);
+    border-top: 4px solid var(--walnut-950);
+    height: 34px;
+    position: relative;
+}
+
+.dial-strip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--on-air-bright);
+    box-shadow: 0 0 8px var(--on-air-bright), 0 0 16px var(--on-air);
+    transform: translateX(-50%);
+}
+
+.dial-strip-track {
+    display: flex;
+    gap: 40px;
+    padding-left: 40px;
+    height: 100%;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--brass-bright);
+    white-space: nowrap;
+    animation: scroll-dial 22s linear infinite;
+    width: max-content;
+}
+
+.dial-strip-track span:nth-child(7) {
+    color: var(--on-air-bright);
+    font-weight: 700;
+}
+
+@keyframes scroll-dial {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--brass);
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .title {
-    font-size: 2rem;
-    color: #ffffff;
-    margin-bottom: 20px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 10px;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
 }
 
 .subtitle {
-    font-size: 1rem;
-    color: #bbbbbb;
-    margin-bottom: 40px;
+    font-size: 0.95rem;
+    color: var(--cream-dim);
+    margin-bottom: 36px;
     text-align: center;
 }
 
-/* Grid compacto de estaciones */
+/* ============================================
+   Grid de estaciones — botones de preselección
+   ============================================ */
+
 .modern-stations {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px; /* menos espacio entre tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+    gap: 12px;
     width: 100%;
 }
 
-/* Tarjetas de estaciones compactas */
 .station {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 12px 10px;
+    background: linear-gradient(180deg, var(--panel), #201811);
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 16px 10px 12px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.03);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-.station:hover,
-.station.active {
-    transform: scale(1.05);
-    border-color: #2cd5ff;
-    box-shadow: 0 0 10px #2cd5ffcc;
-    background-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Logos más pequeños y compactos */
-.station-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.station-freq {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--brass);
+    letter-spacing: 0.03em;
     margin-bottom: 8px;
+    opacity: 0.85;
+}
+
+.station:hover {
+    transform: translateY(-2px);
+    border-color: var(--brass);
+}
+
+.station:focus-visible {
+    outline: 2px solid var(--brass-bright);
+    outline-offset: 2px;
+}
+
+.station.activa {
+    border-color: var(--on-air-bright);
+    box-shadow: 0 0 0 1px var(--on-air-bright), 0 0 18px rgba(255, 90, 38, 0.35);
+    background: linear-gradient(180deg, #2f2115, #241a10);
+}
+
+.station.activa .station-freq {
+    color: var(--on-air-bright);
+    opacity: 1;
+}
+
+.station.activa .station-info h3 {
+    color: var(--brass-bright);
+}
+
+/* Pequeño indicador tipo LED que se enciende cuando la emisora está activa */
+.station::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3a2f22;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.6);
+}
+
+.station.activa::before {
+    background: var(--on-air-bright);
+    box-shadow: 0 0 6px var(--on-air-bright), 0 0 10px var(--on-air);
+}
+
+.station-logo {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    margin-bottom: 10px;
     object-fit: cover;
-    border: 2px solid #ffffff22;
+    border: 2px solid var(--panel-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .station-info h3 {
-    font-size: 1rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.95rem;
     text-align: center;
-    color: #ffffff;
+    color: var(--cream);
     margin-bottom: 3px;
     overflow: hidden;
     max-width: 100%;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    transition: color 0.3s ease;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
 .station-info p {
-    font-size: 0.75rem;
-    color: #bbbbbb;
-    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--cream-dim);
+    font-weight: 400;
 }
 
-/* Reproductor */
-#aplayer {
+/* ============================================
+   Reproductor — panel de control fijo
+   ============================================ */
+
+.modern-player {
     position: fixed;
-    bottom: 100;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.player-shell {
+    pointer-events: auto;
     width: 100%;
     max-width: 1200px;
+    background: linear-gradient(180deg, #1f170f, #150f0a);
+    border: 1px solid var(--panel-border);
+    border-bottom: none;
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.5);
+    padding: 10px 14px 0;
+    position: relative;
+}
+
+.player-led {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3a2f22;
+    z-index: 3;
+}
+
+.player-shell.is-playing .player-led {
+    background: var(--on-air-bright);
+    box-shadow: 0 0 6px var(--on-air-bright), 0 0 12px var(--on-air);
+}
+
+.player-shell.has-error .player-led {
+    background: #ff2d2d;
+    animation: blink-error 0.3s ease-in-out 3;
+}
+
+@keyframes blink-error {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+#aplayer.aplayer-modern {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
     height: 65px;
-    background-color: #1c1c1c;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.playing-now {
+    display: none;
 }
 
 .aplayer-author {
-  display: none !important;
+    display: none !important;
 }
 
 .aplayer-time-inner {
-  display: none !important;
+    display: none !important;
 }
 
-/* Responsive */
+/* Recolorea APlayer para que encaje con el panel de control */
+.aplayer.aplayer-modern .aplayer-info {
+    border-top: none;
+}
+
+.aplayer.aplayer-modern .aplayer-pic {
+    border-radius: 8px;
+}
+
+.aplayer.aplayer-modern .aplayer-title {
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-weight: 500;
+}
+
+.aplayer.aplayer-modern .aplayer-bar-wrap .aplayer-bar {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.aplayer.aplayer-modern .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
+    background: rgba(212, 162, 76, 0.3);
+}
+
+.aplayer.aplayer-modern .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+    background: var(--on-air-bright) !important;
+}
+
+.aplayer.aplayer-modern .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+    background: var(--brass-bright) !important;
+}
+
+.aplayer.aplayer-modern .aplayer-controller .aplayer-time {
+    color: var(--cream-dim);
+}
+
+.aplayer.aplayer-modern .aplayer-icon path {
+    fill: var(--cream-dim);
+}
+
+.aplayer.aplayer-modern .aplayer-icon:hover path {
+    fill: var(--brass-bright);
+}
+
+.aplayer.aplayer-modern .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar {
+    background: var(--brass);
+}
+
+/* ============================================
+   Loader
+   ============================================ */
+
+.loader {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--walnut-950);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader.active {
+    display: flex;
+}
+
+.loader-spinner {
+    width: 46px;
+    height: 46px;
+    border: 3px solid var(--panel-border);
+    border-top-color: var(--brass-bright);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
 @media (max-width: 768px) {
+    body {
+        padding: 24px 12px 130px;
+    }
+
     .container {
-        padding: 20px;
+        padding: 0 16px 24px;
+    }
+
+    .dial-strip {
+        width: calc(100% + 32px);
+        margin: 0 -16px 20px;
+    }
+
+    .title {
+        font-size: 2.1rem;
+    }
+
+    .subtitle {
+        margin-bottom: 24px;
     }
 
     .modern-stations {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
         gap: 8px;
     }
 
     .station-logo {
-        width: 50px;
-        height: 50px;
+        width: 46px;
+        height: 46px;
     }
 
     .station-info h3 {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
+}
 
-    .station-info p {
-        font-size: 0.7rem;
+@media (max-width: 420px) {
+    .modern-stations {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

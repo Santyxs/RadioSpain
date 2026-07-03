@@ -251,13 +251,28 @@ document.addEventListener('DOMContentLoaded', () => {
         preload: 'none'
     });
 
+    const playerShell = document.querySelector('.player-shell');
+
     player.on('loadeddata', () => {
         console.log('🎵 APlayer listo');
     });
 
+    player.on('play', () => playerShell?.classList.add('is-playing'));
+    player.on('pause', () => playerShell?.classList.remove('is-playing'));
+
+    player.on('error', () => {
+        const current = stations[player.list.index];
+        console.error(`❌ No se pudo reproducir: ${current?.name} — ${current?.url}`);
+        playerShell?.classList.remove('is-playing');
+        playerShell?.classList.add('has-error');
+        setTimeout(() => playerShell?.classList.remove('has-error'), 1500);
+    });
+
     const switchStation = (index) => {
         player.list.switch(index);
-        player.play();
+        Promise.resolve(player.play()).catch(err => {
+            console.error(`❌ Error al reproducir ${stations[index].name}:`, err);
+        });
 
         document.querySelectorAll('.station').forEach(el => el.classList.remove('activa'));
         document.querySelectorAll('.station')[index]?.classList.add('activa');
